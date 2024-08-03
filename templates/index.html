@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password - managar</title>
+</head>
+<link rel="stylesheet" href="static/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+
+<body>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>about</li>
+            <li>conatact</li>
+        </ul>
+    </nav>
+    <div class="containar">
+        <h1>Welcome to your trusted password manager.</h1>
+        <div class="box">
+            <form action="/" method="POST">
+                <div class="webname">
+                    <input type="text" name="webname" id="web-name" placeholder="Website Name" required>
+                </div>
+                <div class="name">
+                    <input type="text" name="username" id="user-name" placeholder="Username" required>
+                </div>
+                <div class="pass">
+                    <input name="pass" type="password" id="password" placeholder="password" required>
+                </div>
+                <input type="submit" value="Submit" id="submit">
+            </form>
+        </div>
+        <br>
+        <br>
+        <h2>Your password:</h2>
+        {% if alluserinput|length==0 %}
+        <div class="norecored">
+            <h1>NO PASSWORD HAS BEEN SAVE</h1>
+        </div>
+
+        {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th>sno</th>
+                    <th>Website name</th>
+                    <th>Username</th>
+                    <th>password</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            {% for alluserinput in alluserinput %}
+            <tbody>
+                <td>{{loop.index}}</td>
+                <td>{{alluserinput.webname}}</td>
+                <td>{{alluserinput.username}}</td>
+                <td><input  type="password" value="{{alluserinput.userpass}}" id="storepass" readonly><img
+                        src="static/visibility.png" alt="no found" class="visibale"></td>
+                <td class="fixed">
+                    <button class="btn copy-btn">Copy</button>
+                    <a href="delete/{{alluserinput.sno}}"><button class="btn delete-btn">Delete</button></a>
+                </td>
+            </tbody>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </div>
+</body>
+<script src="static/script.js"></script>
+
+</html>
