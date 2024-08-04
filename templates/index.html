@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password - managar</title>
+    <link rel="shortcut icon" href="static/logo_password.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
 </head>
-<link rel="stylesheet" href="static/style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-    rel="stylesheet">
 
 <body>
     <nav>
@@ -60,10 +61,10 @@
                 <td>{{loop.index}}</td>
                 <td>{{alluserinput.webname}}</td>
                 <td>{{alluserinput.username}}</td>
-                <td><input  type="password" value="{{alluserinput.userpass}}" id="storepass" readonly><img
-                        src="static/visibility.png" alt="no found" class="visibale"></td>
+                <td><input type="password" value="{{alluserinput.userpass}}" class="storepass" id="storepass{{loop.index}}" readonly>
+                    <img src="static/visibility.png" alt="no found" class="visibale" onclick="togglePassword('storepass{{loop.index}}')">
+                </td>
                 <td class="fixed">
-                    <button class="btn copy-btn">Copy</button>
                     <a href="delete/{{alluserinput.sno}}"><button class="btn delete-btn">Delete</button></a>
                 </td>
             </tbody>
