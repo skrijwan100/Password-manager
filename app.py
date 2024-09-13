@@ -1,5 +1,5 @@
-from flask import Flask,render_template,request,redirect
-from flask_sqlalchemy import SQLAlchemy
+from flask import *
+from flask_sqlalchemy import*
 
 
 app = Flask(__name__)
