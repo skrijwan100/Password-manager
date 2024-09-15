@@ -7,7 +7,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///Password.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db=SQLAlchemy(app)
-
+#create a database 
 class Password(db.Model):
     sno=db.Column(db.Integer,primary_key=True)
     webname=db.Column(db.String(100), nullable=False)
